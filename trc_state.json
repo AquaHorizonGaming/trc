@@ -17,8 +17,8 @@
         "parent_ids": null,
         "aired_at": "2006-07-23 00:00:00"
       },
-      "retry_count": 1,
-      "last_retry": "2026-01-11T02:44:43.680022",
+      "retry_count": 2,
+      "last_retry": "2026-01-11T02:55:16.428313",
       "manual_scrape_started": false,
       "streams": [],
       "stream_index": 0
@@ -40,8 +40,8 @@
         "parent_ids": null,
         "aired_at": "2025-10-31 00:00:00"
       },
-      "retry_count": 1,
-      "last_retry": "2026-01-11T02:44:44.771213",
+      "retry_count": 2,
+      "last_retry": "2026-01-11T02:55:17.810169",
       "manual_scrape_started": false,
       "streams": [],
       "stream_index": 0
@@ -63,8 +63,8 @@
         "parent_ids": null,
         "aired_at": "1980-02-27 00:00:00"
       },
-      "retry_count": 1,
-      "last_retry": "2026-01-11T02:44:45.771923",
+      "retry_count": 2,
+      "last_retry": "2026-01-11T02:55:18.528813",
       "manual_scrape_started": false,
       "streams": [],
       "stream_index": 0
@@ -86,8 +86,8 @@
         "parent_ids": null,
         "aired_at": "2025-11-10 00:00:00"
       },
-      "retry_count": 1,
-      "last_retry": "2026-01-11T02:44:46.777477",
+      "retry_count": 2,
+      "last_retry": "2026-01-11T02:55:19.563498",
       "manual_scrape_started": false,
       "streams": [],
       "stream_index": 0
@@ -109,8 +109,8 @@
         "parent_ids": null,
         "aired_at": "2025-11-18 00:00:00"
       },
-      "retry_count": 1,
-      "last_retry": "2026-01-11T02:44:47.789955",
+      "retry_count": 2,
+      "last_retry": "2026-01-11T02:55:20.543160",
       "manual_scrape_started": false,
       "streams": [],
       "stream_index": 0
@@ -132,8 +132,8 @@
         "parent_ids": null,
         "aired_at": "2026-01-01 00:00:00"
       },
-      "retry_count": 1,
-      "last_retry": "2026-01-11T02:44:48.808026",
+      "retry_count": 2,
+      "last_retry": "2026-01-11T02:55:21.571170",
       "manual_scrape_started": false,
       "streams": [],
       "stream_index": 0
@@ -155,8 +155,8 @@
         "parent_ids": null,
         "aired_at": "2019-11-05 00:00:00"
       },
-      "retry_count": 1,
-      "last_retry": "2026-01-11T02:44:49.795720",
+      "retry_count": 2,
+      "last_retry": "2026-01-11T02:55:22.562203",
       "manual_scrape_started": false,
       "streams": [],
       "stream_index": 0
@@ -178,8 +178,8 @@
         "parent_ids": null,
         "aired_at": "2025-06-20 00:00:00"
       },
-      "retry_count": 1,
-      "last_retry": "2026-01-11T02:44:50.822358",
+      "retry_count": 2,
+      "last_retry": "2026-01-11T02:55:23.558095",
       "manual_scrape_started": false,
       "streams": [],
       "stream_index": 0
@@ -201,8 +201,8 @@
         "parent_ids": null,
         "aired_at": "2022-05-23 00:00:00"
       },
-      "retry_count": 1,
-      "last_retry": "2026-01-11T02:44:51.821395",
+      "retry_count": 2,
+      "last_retry": "2026-01-11T02:55:24.619644",
       "manual_scrape_started": false,
       "streams": [],
       "stream_index": 0
@@ -224,8 +224,8 @@
         "parent_ids": null,
         "aired_at": "1986-04-11 00:00:00"
       },
-      "retry_count": 1,
-      "last_retry": "2026-01-11T02:44:52.864171",
+      "retry_count": 2,
+      "last_retry": "2026-01-11T02:55:25.612504",
       "manual_scrape_started": false,
       "streams": [],
       "stream_index": 0
@@ -247,8 +247,8 @@
         "parent_ids": null,
         "aired_at": "2003-05-21 00:00:00"
       },
-      "retry_count": 1,
-      "last_retry": "2026-01-11T02:44:53.880654",
+      "retry_count": 2,
+      "last_retry": "2026-01-11T02:55:26.639315",
       "manual_scrape_started": false,
       "streams": [],
       "stream_index": 0
