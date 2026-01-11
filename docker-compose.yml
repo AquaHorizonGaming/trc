@@ -1,0 +1,71 @@
+version: "3.8"
+
+services:
+  trc:
+    build: .
+    container_name: trc
+    restart: unless-stopped
+    environment:
+      # =================================================================
+      # REQUIRED - Edit these values before running
+      # =================================================================
+
+      # Riven API URL (your Riven instance)
+      - RIVEN_URL=http://192.168.50.203:8083
+
+      # Riven API Key (get from Riven settings)
+      - RIVEN_API_KEY=your_riven_api_key_here
+
+      # Real-Debrid API Key (get from https://real-debrid.com/apitoken)
+      - RD_API_KEY=your_real_debrid_api_key_here
+
+      # =================================================================
+      # OPTIONAL - Adjust these as needed
+      # =================================================================
+
+      # How often to check Riven for problem items (hours)
+      - CHECK_INTERVAL_HOURS=6
+
+      # Time between retry attempts for same item (minutes)
+      - RETRY_INTERVAL_MINUTES=10
+
+      # How often to check RD torrent status (minutes)
+      - RD_CHECK_INTERVAL_MINUTES=5
+
+      # Max time to wait for RD download before considering stalled (hours)
+      - RD_MAX_WAIT_HOURS=2
+
+      # Number of Riven retries before falling back to manual scrape
+      - MAX_RIVEN_RETRIES=3
+
+      # Skip Riven retry and go directly to manual RD scraping (true/false)
+      # Useful when Riven's built-in retry doesn't work for your setup
+      - SKIP_RIVEN_RETRY=false
+
+      # Max torrents to try per item during manual scrape
+      - MAX_RD_TORRENTS=10
+
+      # Max concurrent active downloads on Real-Debrid (max 3 recommended)
+      - MAX_ACTIVE_RD_DOWNLOADS=3
+
+      # Delay between adding torrents to RD (seconds)
+      - TORRENT_ADD_DELAY_SECONDS=30
+
+      # Rate limiting - Real-Debrid (seconds between API calls)
+      # RD allows 250 req/min, default 5s = 12 req/min (safe)
+      - RD_RATE_LIMIT_SECONDS=5
+
+      # Rate limiting - Riven (seconds between API calls)
+      - RIVEN_RATE_LIMIT_SECONDS=1
+
+      # Log level (DEBUG, INFO, WARNING, ERROR)
+      - LOG_LEVEL=INFO
+
+    # Optional: connect to same network as Riven
+    # networks:
+    #   - riven_network
+
+# networks:
+#   riven_network:
+#     external: true
+
