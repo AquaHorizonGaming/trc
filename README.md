@@ -101,7 +101,7 @@ All configuration is done via environment variables:
 | `SKIP_RIVEN_RETRY` | `false` | Skip remove+add retry and go directly to manual RD scraping |
 | `SKIP_RD_VALIDATION` | `false` | Skip Real-Debrid API validation on startup (for testing) |
 | `MAX_RD_TORRENTS` | `10` | Max torrents to try per item during manual scrape |
-| `MAX_ACTIVE_RD_DOWNLOADS` | `3` | Max concurrent active downloads on Real-Debrid |
+| `MAX_ACTIVE_RD_DOWNLOADS` | `3` | Max concurrent active downloads on Real-Debrid (enforced during cleanup) |
 | `TORRENT_ADD_DELAY_SECONDS` | `30` | Delay between adding torrents to RD |
 | `RD_RATE_LIMIT_SECONDS` | `5` | Seconds between Real-Debrid API calls |
 | `RIVEN_RATE_LIMIT_SECONDS` | `1` | Seconds between Riven API calls |

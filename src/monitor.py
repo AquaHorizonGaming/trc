@@ -364,8 +364,57 @@ class TRCMonitor:
             else:
                 logger.debug("No stuck torrents found")
 
+            # Enforce max active torrents limit
+            await self._enforce_max_active_torrents()
+
         except Exception as e:
             logger.error(f"Error during RD cleanup: {e}", exc_info=True)
+
+    async def _enforce_max_active_torrents(self):
+        """Ensure we don't have more than MAX_ACTIVE_RD_DOWNLOADS active torrents."""
+        max_active = self.config.max_active_rd_downloads
+
+        try:
+            # Get fresh list of all torrents
+            all_torrents = await self.rd.get_torrents(limit=100)
+
+            # Filter to only active torrents (downloading, queued, etc.)
+            active_torrents = [t for t in all_torrents if t.is_active]
+
+            if len(active_torrents) <= max_active:
+                logger.debug(f"Active torrents ({len(active_torrents)}) within limit ({max_active})")
+                return
+
+            logger.warning(f"Too many active torrents: {len(active_torrents)}/{max_active}")
+
+            # Sort by progress (lowest first) so we remove least-progressed ones
+            # Torrents with 0% that are not tracked are prioritized for removal
+            tracked_ids = set(self.rd_downloads.keys())
+
+            def sort_key(t):
+                # Prioritize keeping: 1) tracked by TRC, 2) higher progress
+                is_tracked = 1 if t.id in tracked_ids else 0
+                return (is_tracked, t.progress)
+
+            active_torrents.sort(key=sort_key)
+
+            # Remove excess torrents (lowest priority first)
+            excess_count = len(active_torrents) - max_active
+            for torrent in active_torrents[:excess_count]:
+                logger.warning(
+                    f"Removing excess torrent {torrent.id} ({torrent.progress}% progress): "
+                    f"{torrent.filename[:50] if torrent.filename else 'unknown'}"
+                )
+                await self.rd.delete_torrent(torrent.id)
+                # Remove from tracking if present
+                if torrent.id in self.rd_downloads:
+                    del self.rd_downloads[torrent.id]
+                    self.state.remove_rd_download(torrent.id)
+
+            logger.info(f"Removed {excess_count} excess torrents to enforce limit of {max_active}")
+
+        except Exception as e:
+            logger.error(f"Error enforcing max active torrents: {e}", exc_info=True)
 
     async def _check_problem_items(self):
         """Check for and handle problem items."""
