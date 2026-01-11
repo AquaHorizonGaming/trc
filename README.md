@@ -93,6 +93,7 @@ All configuration is done via environment variables:
 | `RD_MAX_WAIT_HOURS` | `2` | Max time to wait for RD download before considering stalled |
 | `MAX_RIVEN_RETRIES` | `3` | Number of Riven retries before falling back to manual scrape |
 | `SKIP_RIVEN_RETRY` | `false` | Skip remove+add retry and go directly to manual RD scraping |
+| `SKIP_RD_VALIDATION` | `false` | Skip Real-Debrid API validation on startup (for testing) |
 | `MAX_RD_TORRENTS` | `10` | Max torrents to try per item during manual scrape |
 | `MAX_ACTIVE_RD_DOWNLOADS` | `3` | Max concurrent active downloads on Real-Debrid |
 | `TORRENT_ADD_DELAY_SECONDS` | `30` | Delay between adding torrents to RD |
